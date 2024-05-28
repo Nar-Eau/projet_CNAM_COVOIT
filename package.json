@@ -1,0 +1,24 @@
+{
+  "name": "projet",
+  "version": "1.0.0",
+  "description": "quizzit readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node compile-sass.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.77.2"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0",
+    "uglify-js": "^3.17.4"
+  }
+}
