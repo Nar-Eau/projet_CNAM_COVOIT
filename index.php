@@ -19,7 +19,5 @@ try {
     <title>Accueil</title>
 </head>
 
-
-
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
 

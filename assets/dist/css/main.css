@@ -1,0 +1,31 @@
+footer {
+  background-color: purple;
+  color: blue; }
+
+body {
+  margin: inherit; }
+  body ul {
+    list-style-type: none; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+header {
+  box-shadow: 0 0 5px #000;
+  width: 100%;
+  height: 200px;
+  overflow: hidden; }
+  header .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    header .container .logo-header img {
+      width: 200px; }
+    header .container #header-menu ul {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      text-transform: capitalize;
+      color: 35008A; }
