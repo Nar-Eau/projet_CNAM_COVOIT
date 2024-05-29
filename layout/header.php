@@ -7,6 +7,8 @@
     <link rel="icon" href="./assets/img/quizit_logo_mini.svg">
     <title>Bienvenue !</title>
     <link rel="stylesheet" href="./assets/dist/css/main.css">
+    <link rel="stylesheet" href="./layout/style.css">
+
     <script src="./assets/dist/js/main.js"></script>
 </head>
 
