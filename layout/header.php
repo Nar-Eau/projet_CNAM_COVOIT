@@ -37,6 +37,11 @@
                             class="">
                             Paramètres</a>
                     </li>
+                    <li>
+                        <a href="/Quiz.php"
+                            class="">
+                            test cody</a>
+                    </li>
                 </ul>
             </div>
             <div id="account-login">
