@@ -12,12 +12,11 @@ try {
 }
 ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-</head>
+<h1 class="headings">QuizIT</h1>
+
+<div class="topics-container">
+    
+</div>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
 

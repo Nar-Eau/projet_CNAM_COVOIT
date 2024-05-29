@@ -37,7 +37,7 @@
                 </ul>
             </div>
             <div id="account-login">
-                <a href="login.php">
+                <a href="connexion.php">
                     <img src="./assets/img/account.png" alt="account">
                 </a>
             </div>

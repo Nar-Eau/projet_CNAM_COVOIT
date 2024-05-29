@@ -6,6 +6,8 @@
 $primary:   #35008A;
 $black:     #000;
 $white:     #fff;
+$gray:      #ccc;
+$gray-2:    #555;
 
 
 /* fonts */
@@ -13,4 +15,4 @@ $font-base: "Reddit Mono", monospace;
 
 
 /* box shadow */
-$box-shadow: 0 0 20px -10px $black;
+$box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
