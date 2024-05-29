@@ -1,5 +1,9 @@
+@import './assets/scss/variables.scss';
+
+
 body {
     margin: inherit;
+    font-family: $font-base;
 
     ul {
         list-style-type: none;
@@ -9,4 +13,8 @@ body {
 img {
     width: 100%;
     height: auto;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
 }

@@ -36,5 +36,10 @@
                     </li>
                 </ul>
             </div>
+            <div id="account-login">
+                <a href="login.php">
+                    <img src="./assets/img/account.png" alt="account">
+                </a>
+            </div>
         </div>
     </header>
