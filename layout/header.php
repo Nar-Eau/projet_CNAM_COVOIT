@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenue !</title>
     <link rel="stylesheet" href="./assets/dist/css/main.css">
+    <link rel="stylesheet" href="./layout/style.css">
+
     <script src="./assets/dist/js/main.js"></script>
 </head>
 
