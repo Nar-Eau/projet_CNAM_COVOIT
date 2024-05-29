@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/quizit_logo_mini.svg">
     <title>Bienvenue !</title>
     <link rel="stylesheet" href="./assets/dist/css/main.css">
     <script src="./assets/dist/js/main.js"></script>

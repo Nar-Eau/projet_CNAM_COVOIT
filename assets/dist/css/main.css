@@ -18,6 +18,13 @@ body {
   font-family: "Reddit Mono", monospace; }
   body ul {
     list-style-type: none; }
+  body .headings {
+    margin-bottom: 50px; }
+    body .headings .page-title {
+      color: #35008A;
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 1rem; }
 
 img {
   width: 100%;
@@ -25,6 +32,10 @@ img {
 
 a:-webkit-any-link {
   text-decoration: none; }
+
+.content {
+  text-align: center;
+  margin: 20px 100px; }
 
 /* colors */
 /* fonts */
@@ -55,6 +66,30 @@ header {
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       width: 30px;
       height: 30px; }
+
+.topics-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .topics-container .topic-item {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px; }
+    .topics-container .topic-item:hover {
+      cursor: pointer; }
+      .topics-container .topic-item:hover .topic-img img {
+        transform: scale(1.1); }
+    .topics-container .topic-item .topic-img {
+      background-color: #35008A;
+      padding: 70px; }
+      .topics-container .topic-item .topic-img img {
+        transition: all 200ms ease-in-out;
+        aspect-ratio: 1; }
+    .topics-container .topic-item .topic-description {
+      padding: 1rem; }
+      .topics-container .topic-item .topic-description p {
+        text-align: left; }
 
 /* colors */
 /* fonts */

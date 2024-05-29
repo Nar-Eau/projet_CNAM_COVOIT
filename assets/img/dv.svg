@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="276.675 405.7 42 42" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="42" width="42" x="276.675" y="405.7"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer" vectornator:layerName="Layer">
+<g opacity="1" vectornator:layerName="Computer">
+<path d="M316.675 436.7L278.675 436.7C277.57 436.7 276.675 437.595 276.675 438.7L276.675 446.7C276.675 447.252 277.123 447.7 277.675 447.7L317.675 447.7C318.227 447.7 318.675 447.252 318.675 446.7L318.675 438.7C318.675 437.595 317.78 436.7 316.675 436.7ZM298.675 442.7L282.675 442.7L282.675 440.7L298.675 440.7L298.675 442.7ZM310.675 443.7C309.571 443.7 308.675 442.805 308.675 441.7C308.675 440.595 309.571 439.7 310.675 439.7C311.779 439.7 312.675 440.595 312.675 441.7C312.675 442.805 311.779 443.7 310.675 443.7ZM317.675 405.7L277.675 405.7C277.123 405.7 276.675 406.148 276.675 406.7L276.675 432.7C276.675 433.805 277.57 434.7 278.675 434.7L316.675 434.7C317.78 434.7 318.675 433.805 318.675 432.7L318.675 406.7C318.675 406.148 318.227 405.7 317.675 405.7ZM313.675 428.7C313.675 429.252 313.227 429.7 312.675 429.7L282.675 429.7C282.123 429.7 281.675 429.252 281.675 428.7L281.675 411.7C281.675 411.148 282.123 410.7 282.675 410.7L312.675 410.7C313.227 410.7 313.675 411.148 313.675 411.7L313.675 428.7Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="path"/>
+</g>
+</g>
+</svg>

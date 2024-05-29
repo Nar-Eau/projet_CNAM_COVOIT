@@ -1,0 +1,38 @@
+.topics-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .topic-item {
+        border-radius: $br-normal;
+        box-shadow: $box-shadow;
+        overflow: hidden;
+        width: 400px;
+
+        &:hover {
+            cursor: pointer;
+            
+            .topic-img img {
+                transform: scale(1.1);
+            }
+        }
+
+        .topic-img {
+            background-color:   $primary;
+            padding: 70px;
+
+            img {
+                transition: $animation;
+                aspect-ratio: 1;
+            }
+        }
+
+        .topic-description {
+            padding: 1rem;
+
+            p {
+                text-align: left;
+            }
+        }
+    }
+}

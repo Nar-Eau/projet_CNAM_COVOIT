@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
-
-
 /* colors */
 $primary:   #35008A;
 $black:     #000;
@@ -12,7 +10,12 @@ $gray-2:    #555;
 
 /* fonts */
 $font-base: "Reddit Mono", monospace;
+$fs-headers: 40px;
+$fw-headers: 800;
 
 
 /* box shadow */
 $box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+$br-normal: 5px;
+
+$animation: all 200ms ease-in-out;

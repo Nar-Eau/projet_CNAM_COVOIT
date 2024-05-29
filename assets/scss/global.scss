@@ -8,6 +8,17 @@ body {
     ul {
         list-style-type: none;
     }
+
+    .headings {
+        margin-bottom: 50px;
+
+        .page-title {
+            color: $primary;
+            font-size: $fs-headers;
+            font-weight: $fw-headers;
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 img {
@@ -17,4 +28,9 @@ img {
 
 a:-webkit-any-link {
     text-decoration: none;
+}
+
+.content {
+    text-align: center;
+    margin: 20px 100px;
 }
