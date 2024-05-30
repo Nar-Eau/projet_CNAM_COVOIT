@@ -1,3 +1,4 @@
+</body>
 <footer>
     <div class="copyright">
         <div class="container-marquee">
@@ -7,5 +8,4 @@
         </div>
     </div>
 </footer>
-</body>
 </html>

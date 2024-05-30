@@ -28,14 +28,9 @@
                             aria-current="page">Acceuil</a>
                     </li>
                     <li>
-                        <a href="/categories.php"
+                        <a href="/modules.php"
                             class="">
                             Modules</a>
-                    </li>
-                    <li>
-                        <a href="/add-category.php"
-                            class="">
-                            Paramètres</a>
                     </li>
                     <li>
                         <a href="/Quiz.php"
