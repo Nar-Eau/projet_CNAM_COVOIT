@@ -63,7 +63,8 @@ a:-webkit-any-link {
 
 .content {
   text-align: center;
-  margin: 0 100px; }
+  margin: 0 100px;
+  height: 100vh; }
 
 input[type="text"], input[type="password"] {
   width: 100%;
@@ -141,22 +142,31 @@ header {
       cursor: pointer; }
       .topics-container .topic-item a:hover img {
         transform: scale(1.1); }
+    .topics-container .topic-item .title {
+      color: #fff;
+      font-weight: 800;
+      font-size: 24px;
+      text-transform: uppercase; }
     .topics-container .topic-item .topic-img {
       background: radial-gradient(circle, #CA00D5, #35008A);
-      padding: 70px;
+      padding: 50px 50px 2rem;
       display: block; }
       .topics-container .topic-item .topic-img img {
-        aspect-ratio: 1; }
+        aspect-ratio: 1;
+        margin-bottom: 1rem; }
     .topics-container .topic-item .quiz-interaction {
       display: flex;
-      padding: 10px;
+      padding-top: 2rem;
       justify-content: space-around; }
       .topics-container .topic-item .quiz-interaction img {
         width: 50px; }
+      .topics-container .topic-item .quiz-interaction span {
+        display: block; }
     .topics-container .topic-item .topic-description {
-      padding: 1rem; }
+      padding: 2rem; }
       .topics-container .topic-item .topic-description p {
-        text-align: left; }
+        text-align: left;
+        margin: 0; }
 
 #memorium {
   width: 100%;
@@ -165,7 +175,8 @@ header {
   #memorium .content {
     display: flex;
     justify-content: space-around;
-    padding: 40px 0; }
+    padding: 40px 0;
+    height: inherit; }
     #memorium .content span {
       font-size: 40px;
       font-weight: 800; }
@@ -193,7 +204,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 50px;
   margin-bottom: 60px; }
   .module-list .modules-container {

@@ -18,32 +18,45 @@
             }
         }
 
+        .title {
+            color: $white;
+            font-weight: $fw-headers;
+            font-size: $fs-medium;
+            text-transform: uppercase;
+        }
+
         .topic-img {
             background: radial-gradient(circle, $secondary, $primary);
-            padding: 70px;
+            padding: 50px 50px 2rem;
             display: block;
 
             img {
                 aspect-ratio: 1;
+                margin-bottom: 1rem;
             }
         }
 
         .quiz-interaction {
             display: flex;
-            padding: 10px;
+            padding-top: 2rem;
             justify-content: space-around;
 
             
             img {
                 width: 50px;
             }
+
+            span {
+                display: block;
+            }
         }
 
         .topic-description {
-            padding: 1rem;
+            padding: 2rem;
 
             p {
                 text-align: left;
+                margin: 0;
             }
         }
     }
@@ -58,6 +71,7 @@
         display: flex;
         justify-content: space-around;
         padding: 40px 0;
+        height: inherit;
         
         span {
             font-size: $fs-headers;

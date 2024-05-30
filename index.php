@@ -26,34 +26,38 @@ try {
         <div class="topic-item">
                 <a href="modules.php?id_topic=1" class="topic-img">
                     <img src="./assets/img/cs.svg" alt="Cybersécurité">
+                    <span class="title">Cybersécurité</span>
                 </a>
             <div class="quiz-interaction">
                 <a href="modules.php?id_topic=1" class="revision">
                     <img src="./assets/img/learn.svg">
+                    <span>Révisions</span>
                 </a>
                 <a href="#" class="quizz-start">
                     <img src="./assets/img/quiz.svg">
+                    <span>Quiz</span>
                 </a>
             </div>
             <div class="topic-description">
-                <div class="title">Cybersécurité</div>
                 <p>Retrouvez des questions autours des modules les plus importants de ce thème : Développement Web, Conteneurisation</p>
             </div>
         </div>
         <div class="topic-item">
             <a href="modules.php?id_topic=2" class="topic-img">
-                <img src="./assets/img/dv.svg" alt="Dévelop">
+                <img src="./assets/img/dv.svg" alt="Développement">
+                <span class="title">Développement</span>
             </a>
             <div class="quiz-interaction">
                 <a href="modules.php?id_topic=2" class="revision">
                     <img src="./assets/img/learn.svg">
+                    <span>Révisions</span>
                 </a>
                 <a href="#" class="quizz-start">
                     <img src="./assets/img/quiz.svg">
+                    <span>Quiz</span>
                 </a>
             </div>
             <div class="topic-description">
-                <div class="title">Développement</div>
                 <p>Retrouvez des questions autours des modules les plus importants de ce thème : Développement Web, Conteneurisation</p>
             </div>
         </div>

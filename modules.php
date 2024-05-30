@@ -30,9 +30,7 @@ if (isset($_GET['id_topic'])) {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae optio cum debitis rerum cupiditate corporis corrupti reprehenderit iusto, harum pariatur numquam ad fugiat, tenetur iste dolor nobis voluptatibus nihil odit.
         </div>
     </div>
-</div>
-
-<div class="module-list">
+    <div class="module-list">
     <?php foreach ($modules as $module):?>
         <div class="modules-container">
             <h2><?php echo $module['Name'] ; ?></h2>      
@@ -55,6 +53,9 @@ if (isset($_GET['id_topic'])) {
             </div>
         </div>
         <?php endforeach; ?>
+    </div>
 </div>
+
+
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
