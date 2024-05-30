@@ -1,37 +1,108 @@
 <?php
-require_once './layout/header.php';
-require_once './classes/Database.php';
+require_once __DIR__ . '/layout/header.php';
+require_once __DIR__ . '/classes/config.php';
+
+
 ?>
-<div class="container">
-    <div class="cards-Cyber">
-        <fieldset>
-            <h2>Cybersécurité</h2>
-            <img src="" alt="Image de cybersécurité">
-            <div class="content">
-                La cybersécurité est l'ensemble des techniques, 
-                pratiques et mesures mises en place pour protéger les systèmes 
-                informatiques, les réseaux et les données contre les attaques,
-                les accès non autorisés, les dommages et les destructions. 
-                Elle vise à assurer la confidentialité, l'intégrité et la 
-                disponibilité des informations numériques.
-                <br><br>
-                <button onclick="launchQuiz('cybersecurity')">Lancer le quiz Cybersécurité</button>
+
+<h1>Modules</h1>
+
+<?php
+$stmt = $pdo->prepare("SELECT * FROM modules");
+$stmt->execute();
+$modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if ($modules === false) {
+    echo "test";
+    return null;
+}
+
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.module-container {
+    width: 400px;
+    height: 150px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    color: red;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+
+
+<div class="module-list" style="display: ruby">
+
+    <?php foreach ($modules as $module): ?>
+        <div class="module-container">
+            <h2><?php echo $module['Name'] ; ?></h2>
+            
+            <div>
+                <label for="score"><b>Score :</b><?php echo number_format($module['Id_Modules'], 2); ?></label>
             </div>
-        </fieldset>
-    </div>
-    <div class="cards-Dev">
-        <fieldset>
-            <h2>Développement</h2>
-            <img src="" alt="Image de développement">
-            <div class="content">
-                Le développement informatique est le processus de conception, de création, de test et de maintenance des applications et des logiciels. Il englobe la programmation, l'écriture de code source, l'élaboration d'algorithmes, ainsi que l'utilisation de divers outils et technologies pour créer des solutions informatiques répondant à des besoins spécifiques.
-                <br><br>
-                <button onclick="launchQuiz('development')">Lancer le quiz Développement</button>
+            
+            
+            <div>
+                <input type="submit" value="Accéder">
             </div>
-        </fieldset>
-    </div>
+        </div>
+        <?php endforeach; ?>
 </div>
 
 
 
-<?php    require_once './layout/footer.php';
+<?php require_once __DIR__ . '/layout/footer.php'; ?>
