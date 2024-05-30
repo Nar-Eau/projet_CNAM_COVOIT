@@ -1,6 +1,14 @@
 <?php
 require_once './layout/header.php';
 require_once './classes/Database.php';
+
+if (isset($_GET['id_quizz'])) {
+    $number = $_GET['id_quizz'];
+    echo "Le chiffre envoyé est : " . htmlspecialchars($number);
+} else {
+    echo "Aucun chiffre n'a été envoyé.";
+}
+
 ?>
 
 <form method='POST' action='.php'>

@@ -24,11 +24,11 @@ try {
 
     <div class="topics-container">
         <div class="topic-item">
-            <a href="#" class="topic-img">
-                <img src="./assets/img/cs.svg" alt="Cybersécurité">
-            </a>
+                <a href="modules.php?id_topic=1" class="topic-img">
+                    <img src="./assets/img/cs.svg" alt="Cybersécurité">
+                </a>
             <div class="quiz-interaction">
-                <a href="#" class="revision">
+                <a href="modules.php?id_topic=1" class="revision">
                     <img src="./assets/img/learn.svg">
                 </a>
                 <a href="#" class="quizz-start">
@@ -41,11 +41,11 @@ try {
             </div>
         </div>
         <div class="topic-item">
-            <a href="#" class="topic-img">
+            <a href="modules.php?id_topic=2" class="topic-img">
                 <img src="./assets/img/dv.svg" alt="Dévelop">
             </a>
             <div class="quiz-interaction">
-                <a href="#" class="revision">
+                <a href="modules.php?id_topic=2" class="revision">
                     <img src="./assets/img/learn.svg">
                 </a>
                 <a href="#" class="quizz-start">

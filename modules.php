@@ -2,22 +2,18 @@
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/classes/config.php';
 
-
+if (isset($_GET['id_topic'])) {
+    $Id_Topic = $_GET['id_topic'];
+    $stmt = $pdo->prepare("SELECT * FROM modules WHERE Id_Topics = :Id_Topic"); 
+    $stmt->execute(['Id_Topic' => $Id_Topic]);
+    $modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {    
+    header('Location: index.php');
+}
 ?>
 
 <h1>Modules</h1>
 
-<?php
-$stmt = $pdo->prepare("SELECT * FROM modules");
-$stmt->execute();
-$modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-if ($modules === false) {
-    echo "test";
-    return null;
-}
-
-?>
 
 <div class="module-list" style="display: ruby">
 
@@ -31,7 +27,9 @@ if ($modules === false) {
             
             
             <div>
-                <input type="submit" value="Accéder">
+            <form action="questionnaire.php" method="get">
+                <button type="submit" name="id_quizz" value=<?php echo $module['Id_Modules']; ?>>test</button>
+            </form>
             </div>
         </div>
         <?php endforeach; ?>
