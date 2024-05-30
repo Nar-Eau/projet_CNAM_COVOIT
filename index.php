@@ -33,7 +33,7 @@ try {
                     <img src="./assets/img/learn.svg">
                     <span>Révisions</span>
                 </a>
-                <a href="#" class="quizz-start">
+                <a href="quiz.php?selection=true&id=1" class="quizz-start">
                     <img src="./assets/img/quiz.svg">
                     <span>Quiz</span>
                 </a>
@@ -52,7 +52,7 @@ try {
                     <img src="./assets/img/learn.svg">
                     <span>Révisions</span>
                 </a>
-                <a href="#" class="quizz-start">
+                <a href="quiz.php?selection=true&id=2" class="quizz-start">
                     <img src="./assets/img/quiz.svg">
                     <span>Quiz</span>
                 </a>
