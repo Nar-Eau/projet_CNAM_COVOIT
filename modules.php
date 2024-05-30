@@ -7,10 +7,10 @@ $user_id = $_SESSION['user_id'];
 
 if (isset($_GET['id_topic'])) {
     $Id_Topic = $_GET['id_topic'];
-    $stmt = $pdo->prepare("SELECT Topics.Name, modules.* 
-    FROM Topics
-    INNER JOIN modules ON Topics.Id_Topics = modules.Id_Topics
-    WHERE Topics.Id_Topics = :Id_Topic"); 
+    $stmt = $pdo->prepare("SELECT topics.Name, modules.* 
+    FROM topics
+    INNER JOIN modules ON topics.Id_Topics = modules.Id_Topics
+    WHERE topics.Id_Topics = :Id_Topic"); 
     $stmt->execute(['Id_Topic' => $Id_Topic]);
     $modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -32,7 +32,7 @@ if (isset($_GET['id_topic'])) {
 
 <div class="module-list">
     <?php foreach ($modules as $module):?>
-        <div class="module-container">
+        <div class="modules-container">
             <h2><?php echo $module['Name'] ; ?></h2>      
             <div class="score">
                 <?php 

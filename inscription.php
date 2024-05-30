@@ -11,7 +11,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     $login = $_POST['login'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (name, login, password) VALUES (:name, :login, :password)";
+    $sql = "INSERT INTO users (name, login, password, Is_Admin) VALUES (:name, :login, :password, 0)";
     $stmt = $pdo->prepare($sql);
     $result = $stmt->execute(['name' => $name, 'login' => $login, 'password' => $password]);
 

@@ -14,8 +14,6 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
-var_dump($dbHost, $dbName, $dbCharset, $dbUser, $dbPassword);
-
 try {
     $pdo = new PDO($dsn, $dbUser, $dbPassword, $options);
 } catch (\PDOException $e) {
