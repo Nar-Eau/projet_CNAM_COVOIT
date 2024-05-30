@@ -1,10 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../class/Database.php';
+require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/../functions/getQuestions.php';
 require_once __DIR__ . '/../functions/getQuestionAndAnswersById.php';
 require_once __DIR__ . '/../functions/isAnswerCorrect.php';
 require_once __DIR__ . '/../functions/getAnswerExplanation.php';
+
 
 class Quiz
 {

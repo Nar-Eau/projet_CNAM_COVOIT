@@ -1,31 +1,49 @@
 <?php
 
-require_once __DIR__ . '/../class/Database.php';
+require_once __DIR__ . '/../classes/Database.php';
 require_once __DIR__ . '/getQuestionAndAnswersById.php';
 
-function getQuestions(int $moduleId): array {
-    $pdo = Database::getConnection();
-
-    // Get 40 random questions for the given module
-    $stmt = $pdo->prepare("
-        SELECT q.Id_Questions
-        FROM Questions q
-        WHERE q.Id_Modules = :moduleId
-        ORDER BY RAND()
-        LIMIT 40
-    ");
-    $stmt->execute(['moduleId' => $moduleId]);
-    $questionsData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    if (count($questionsData) !== 40) {
-        throw new Exception("Could not retrieve 40 questions for the specified module.");
+function getQuestions($connection) {
+    if (!isset($_GET['selection']) || !isset($_GET['id'])) {
+        return [];
     }
 
-    $questions = [];
-    foreach ($questionsData as $questionData) {
-        $questions[] = getQuestionAndAnswersById($questionData['Id_Questions']);
+    $selection = $_GET['selection'];
+    $id = (int) $_GET['id'];
+
+    if ($selection === 'module') {
+        // Logique pour obtenir 10 questions aléatoires pour un module
+        $stmt = $connection->prepare("
+            SELECT * FROM Questions 
+            WHERE Id_Modules = :id 
+            ORDER BY RAND()
+            LIMIT 10
+        ");
+    } elseif ($selection === 'topic') {
+        // Logique pour obtenir 40 questions pour un sujet
+        $stmt = $connection->prepare("
+            SELECT q.* FROM Questions q
+            JOIN Modules m ON q.Id_Modules = m.Id_Modules
+            WHERE m.Id_Topics = :id
+            ORDER BY RAND()
+            LIMIT 40
+        ");
+    } else {
+        return [];
     }
+
+    $stmt->execute(['id' => $id]);
+    $questions = $stmt->fetchAll();
 
     return $questions;
 }
+
+// Vérifier si une connexion est établie à la base de données
+try {
+    $connection = Database::getConnection();
+} catch (PDOException $e) {
+    echo "Erreur de connexion à la base de données : " . $e->getMessage();
+    exit();
+}
+
 ?>

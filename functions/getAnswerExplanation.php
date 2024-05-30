@@ -1,17 +1,20 @@
 <?php
+require_once __DIR__ . '/../classes/Database.php';
 
-require_once __DIR__ . '/../class/Database.php';
-
-function getAnswerExplanation(int $answerId): string {
-    $pdo = Database::getConnection();
-    $stmt = $pdo->prepare("
+function getAnswerExplanation(PDO $connection, int $answerId , int $questionId): string {
+    $stmt = $connection->prepare("
         SELECT Description
-        FROM Answers
-        WHERE Id_Answers = :answerId
+        FROM answers a 
+        where valid_answer = 1 AND Id_questions = $questionId
     ");
-    $stmt->execute(['answerId' => $answerId]);
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    return $result ? $result['Description'] : 'No explanation available.';
+$stmt->execute(/*['id' => $answerId]*/);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($result && isset($result['Description'])) {
+        
+        return $result['Description'];
+    } else {
+        return ''; // Retourne une chaîne vide si aucune explication n'est trouvée
+    }
 }
 ?>

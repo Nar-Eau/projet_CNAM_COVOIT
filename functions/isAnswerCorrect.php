@@ -1,22 +1,12 @@
 <?php
+require_once __DIR__ . '/../classes/Database.php';
 
-require_once __DIR__ . '/../class/Database.php';
-
-function isAnswerCorrect(int $answerId): bool {
-    $pdo = Database::getConnection();
-
-    $stmt = $pdo->prepare("
-        SELECT valid_answer
-        FROM Answers
-        WHERE Id_Answers = :answerId
-    ");
-    $stmt->execute(['answerId' => $answerId]);
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($result) {
-        return (bool)$result['valid_answer'];
-    } else {
-        throw new Exception("Invalid answer selected.");
-    }
+function isAnswerCorrect(PDO $connection, int $answerId): bool {
+    $stmt = $connection->prepare("SELECT valid_answer FROM Answers WHERE Id_Answers = :id");
+    $stmt->execute(['id' => $answerId]);
+    $answer = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $answer ? (bool)$answer['valid_answer'] : false;
 }
+
 ?>
