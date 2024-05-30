@@ -10,7 +10,9 @@ footer {
   width: 100%;
   padding: 10px 0;
   background-color: #35008A;
-  color: #fff; }
+  color: #fff;
+  position: static;
+  bottom: 0; }
 
 .copyright {
   width: 100%;
@@ -37,7 +39,8 @@ footer {
 /* box shadow */
 body {
   margin: inherit;
-  font-family: "Reddit Mono", monospace; }
+  font-family: "Reddit Mono", monospace;
+  height: 100%; }
   body ul {
     list-style-type: none; }
   body .headings {
