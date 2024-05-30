@@ -1,9 +1,11 @@
 <?php
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/classes/config.php';
+require_once __DIR__ . '/functions/utils.php';
 
-session_start();
-$user_id = $_SESSION['user_id'];
+
+
+$user_id = testLogin();
 
 if (isset($_GET['id_topic'])) {
     $Id_Topic = $_GET['id_topic'];
@@ -13,10 +15,10 @@ if (isset($_GET['id_topic'])) {
     WHERE topics.Id_Topics = :Id_Topic"); 
     $stmt->execute(['Id_Topic' => $Id_Topic]);
     $modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 } else {    
     header('Location: index.php');
 }
+
 ?>
 
 <div class="content">
@@ -47,8 +49,8 @@ if (isset($_GET['id_topic'])) {
                 <label for="score"><b>Score : </b><?php echo $score[0]['Score']; ?>/10</label>
             </div>
             <div>
-            <form action="questionnaire.php" method="get">
-                <button type="submit" name="id_quizz" value=<?php echo $module['Id_Modules']; ?>>Accéder</button>
+            <form action="quiz.php" method="get">
+                <button type="submit" name="id" value=<?php echo $module['Id_Modules'];?>>Accéder</button>
             </form>
             </div>
         </div>
