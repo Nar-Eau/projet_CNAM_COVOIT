@@ -10,7 +10,7 @@ body {
     }
 
     .headings {
-        margin-bottom: 50px;
+        margin: 50px;
 
         .page-title {
             color: $primary;
@@ -26,11 +26,16 @@ img {
     height: auto;
 }
 
-a:-webkit-any-link {
-    text-decoration: none;
+a {
+    img {
+        transition: $animation;
+    }
+    &:-webkit-any-link {
+        text-decoration: none;
+    }
 }
 
 .content {
     text-align: center;
-    margin: 20px 100px;
+    margin: 0 100px;
 }
