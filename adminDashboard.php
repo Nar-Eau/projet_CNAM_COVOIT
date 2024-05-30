@@ -12,6 +12,7 @@ $users = $stmt->fetchAll();
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,8 @@ $users = $stmt->fetchAll();
             cursor: pointer;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px;
             border: 1px solid #ddd;
             text-align: left;
@@ -67,7 +69,51 @@ $users = $stmt->fetchAll();
         }
     </style>
     <script src="script.js" defer></script>
+    <script>
+        //Get score for users
+        document.addEventListener("DOMContentLoaded", function() {
+            const rows = document.querySelectorAll("tbody tr");
+            rows.forEach((row) => {
+                row.addEventListener("click", function() {
+                    const userId = this.getAttribute("data-id");
+                    fetch(`get_scores.php?id=${userId}`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            const scoresContainer = document.getElementById("scores-container");
+                            scoresContainer.innerHTML = "";
+                            if (data.length > 0) {
+                                const table = document.createElement("table");
+                                table.innerHTML = `
+                                <thead>
+                                    <tr>
+                                        <th>Module</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                ${data
+                                  .map(
+                                    (score) => `
+                                    <tr>
+                                        <td>${score.module_name}</td>
+                                        <td>${score.score}</td>
+                                    </tr>`
+                                  )
+                                  .join("")}
+                                </tbody>
+                            `;
+                                scoresContainer.appendChild(table);
+                            } else {
+                                scoresContainer.innerHTML =
+                                    "<p>Aucun score trouvé pour cet utilisateur.</p>";
+                            }
+                        });
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
     <div class="table-container">
         <h2>Liste des utilisateurs</h2>
@@ -81,7 +127,7 @@ $users = $stmt->fetchAll();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($users as $user) : ?>
                     <tr data-id="<?php echo htmlspecialchars($user['Id_Users']); ?>">
                         <td><?php echo htmlspecialchars($user['Id_Users']); ?></td>
                         <td><?php echo htmlspecialchars($user['Name']); ?></td>
@@ -100,4 +146,5 @@ $users = $stmt->fetchAll();
     </div>
     <div id="scores-container" class="scores-container"></div>
 </body>
+
 </html>
