@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])) {
         header('Location: settings.php');
     }
     //Init du form
-    $query = "SELECT Name, Login FROM users WHERE Id_Users = :id";
+    $query = "SELECT Name, Login, Is_Admin FROM users WHERE Id_Users = :id";
     $stmt = $pdo->prepare($query);
     $stmt->execute(['id' => $user_id]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -88,6 +88,14 @@ if (!isset($_SESSION['user_id'])) {
     <div class="dashboard-container">
         <h2>Bienvenue sur votre tableau de bord</h2>
         <p>Vous pouvez maintenant accéder à toutes les fonctionnalités disponibles.</p>
+        
+        <?php
+        if ($user['Is_Admin'] == 1) {
+        ?>
+            <a href="adminDashboard.php">Accéder au tableau de bord administrateur</a>
+        <?php }
+        ?>
+        
         <div class="login-container">
             <?php if (!empty($message)) : ?>
                 <p style="color:red"><?= $message ?></p>

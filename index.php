@@ -69,6 +69,7 @@ try {
                 <li>Matéo</li>
                 <li>Cody</li>
                 <li>Alexandre</li>
+                <li>Thomas</li>
             </ul>
         </div>
         <div class="teams">

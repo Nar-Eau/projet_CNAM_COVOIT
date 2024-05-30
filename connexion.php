@@ -22,11 +22,12 @@ if (isset($_SESSION['user_id'])) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user && password_verify($password, $user['password'])) {
             session_start();
-            $sql = "SELECT Id_Users FROM users WHERE login = :login";
+            $sql = "SELECT Id_Users, Is_Admin FROM users WHERE login = :login";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(['login' => $login]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             $_SESSION['user_id'] = $user['Id_Users'];
+            $_SESSION['is_admin'] = $user['Is_Admin'];
             header('Location: settings.php');
         } else {
             $message = 'Mauvais identifiants';
