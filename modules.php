@@ -28,7 +28,7 @@ if (isset($_GET['id_topic'])) {
 
 <div class="module-list">
     <?php foreach ($modules as $module):?>
-        <div class="modules-container">
+        <div class="module-container">
             <h2><?php echo $module['Name'] ; ?></h2>      
             <div class="score">
                 <label for="score"><b>Score :</b><?php echo number_format($module['Id_Modules'], 2); ?></label>

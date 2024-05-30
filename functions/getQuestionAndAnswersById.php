@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../class/Database.php';
+require_once __DIR__ . '/../classes/Database.php';
 
 function getQuestionAndAnswersById(int $questionId): array {
     $pdo = Database::getConnection();

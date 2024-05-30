@@ -1,95 +1,85 @@
 <?php
-session_start();
-require_once __DIR__ . '/../class/createQuiz.php';
-require_once __DIR__ . '/../class/AnswerManager.php';
-require_once __DIR__ . '/../class/Database.php';
+require_once __DIR__ . '/layout/header.php';
+require_once __DIR__ . '/classes/Database.php';
+require_once __DIR__ . '/functions/getQuestions.php';
 
-$moduleId = 1; // Remplacez par l'ID du module réel que vous voulez utiliser
-$feedback = '';
+// Connexion à la base de données
+$connection = Database::getConnection();
 
-if (!isset($_SESSION['questions'])) {
-    try {
-        $quiz = new Quiz();
-        $_SESSION['questions'] = $quiz->getQuestions($moduleId);
-        $_SESSION['currentQuestionIndex'] = 0;
-        $_SESSION['correctAnswers'] = 0;
-        $_SESSION['userAnswers'] = [];
-        $_SESSION['showResultButton'] = false;
-    } catch (Exception $e) {
-        echo 'Error: ' . $e->getMessage();
-        exit();
+// Appeler la fonction getQuestions avec la connexion à la base de données
+$questions = getQuestions($connection);
+
+// Afficher les questions sous forme de quizz interactif
+if (!empty($questions)) {
+    echo "<form id='quizForm' method='POST' action='Results.php'>";
+    foreach ($questions as $index => $question) {
+        echo "<div class='question' id='question_" . $index . "' style='display: none;'>";
+        echo "<p>Question " . ($index + 1) . ": " . htmlspecialchars($question['Question']) . "</p>";
+        // Obtenir les réponses pour cette question
+        $stmt = $connection->prepare("SELECT * FROM Answers WHERE Id_Questions = :id");
+        $stmt->execute(['id' => $question['Id_Questions']]);
+        $answers = $stmt->fetchAll();
+
+        if (!empty($answers)) {
+            foreach ($answers as $answer) {
+                echo "<label>";
+                echo "<input type='radio' name='answer_" . $question['Id_Questions'] . "' value='" . htmlspecialchars($answer['Id_Answers']) . "'>";
+                echo htmlspecialchars($answer['Answer']);
+                echo "</label><br>";
+            }
+        }
+        echo "</div>";
     }
-}
+    echo "<button id='nextButton' type='button'>Question Suivante</button>";
+    echo "<button id='submitButton' type='submit' style='display: none;'>Soumettre</button>";
+    echo "</form>";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['answerId'])) {
-        $answerId = $_POST['answerId'];
-        $currentQuestionIndex = $_SESSION['currentQuestionIndex'];
-        $isCorrect = Quiz::isAnswerCorrect($answerId);
+    // JavaScript pour afficher les questions une par une
+    echo "<script>
+        let currentQuestionIndex = 0;
+        const questions = document.querySelectorAll('.question');
+        const nextButton = document.getElementById('nextButton');
+        const submitButton = document.getElementById('submitButton');
 
-        if ($isCorrect) {
-            $_SESSION['correctAnswers']++;
-            $feedback = 'Correct!';
-        } else {
-            $feedback = 'Incorrect!';
+        function showQuestion(index) {
+            if (index >= 0 && index < questions.length) {
+                if (index > 0) {
+                    questions[currentQuestionIndex].style.display = 'none';
+                }
+                questions[index].style.display = 'block';
+                currentQuestionIndex = index;
+
+                if (currentQuestionIndex === questions.length - 1) {
+                    nextButton.style.display = 'none';
+                    submitButton.style.display = 'block';
+                }
+            }
         }
 
-        $_SESSION['userAnswers'][] = [
-            'question' => $_SESSION['questions'][$currentQuestionIndex]['text'],
-            'correct' => $isCorrect,
-            'selectedAnswerId' => $answerId,
-            'correctAnswerId' => array_filter($_SESSION['questions'][$currentQuestionIndex]['answers'], fn($answer) => Quiz::isAnswerCorrect($answer['id']))[0]['id']
-        ];
+        nextButton.addEventListener('click', function() {
+            const currentQuestion = questions[currentQuestionIndex];
+            const radioButtons = currentQuestion.querySelectorAll('input[type=\"radio\"]');
+            let answerSelected = false;
 
-        $currentQuestionIndex++;
-        if ($currentQuestionIndex >= count($_SESSION['questions'])) {
-            $_SESSION['showResultButton'] = true;
-        } else {
-            $_SESSION['currentQuestionIndex'] = $currentQuestionIndex;
-        }
-    } elseif (isset($_POST['viewResults'])) {
-        header('Location: Results.php');
-        exit();
-    }
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    answerSelected = true;
+                    break;
+                }
+            }
+
+            if (answerSelected) {
+                showQuestion(currentQuestionIndex + 1);
+            } else {
+                alert('Veuillez sélectionner une réponse avant de passer à la question suivante.');
+            }
+        });
+
+        showQuestion(currentQuestionIndex);
+    </script>";
+} else {
+    echo "Aucune question trouvée.";
 }
 
-$currentQuestion = $_SESSION['questions'][$_SESSION['currentQuestionIndex']] ?? null;
-$showResultButton = $_SESSION['showResultButton'];
-
-include __DIR__ . '/../includes/header.php';
-
-$answerManager = new AnswerManager();
-$answers = $answerManager->getShuffledAnswersByQuestionId($currentQuestion['id']);
+require_once __DIR__ . '/layout/footer.php';
 ?>
-
-<div class="quiz">
-    <div class="timer">
-        Question <?php echo $_SESSION['currentQuestionIndex'] + 1; ?> sur 40
-    </div>
-    <?php if ($currentQuestion): ?>
-    <div class="question">
-        <?php echo htmlspecialchars($currentQuestion['text']); ?>
-    </div>
-    <form method="POST" action="">
-        <div class="answers">
-            <?php foreach ($answers as $answer): ?>
-                <button type="submit" name="answerId" value="<?php echo $answer['Id_Answers']; ?>">
-                    <?php echo htmlspecialchars($answer['Answer']); ?>
-                </button>
-            <?php endforeach; ?>
-        </div>
-    </form>
-    <?php if ($feedback): ?>
-        <div class="feedback">
-            <?php echo htmlspecialchars($feedback); ?>
-        </div>
-    <?php endif; ?>
-    <?php endif; ?>
-    <?php if ($showResultButton): ?>
-    <form method="POST" action="">
-        <button type="submit" name="viewResults">Voir les résultats</button>
-    </form>
-    <?php endif; ?>
-</div>
-
-<?php include __DIR__ . '/../includes/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 [
     'HOST' => $dbHost,
-    'MYSQL' => $dbName,
+    'DB_NAME' => $dbName,
     'CHARSET' => $dbCharset,
     'USER' => $dbUser,
     'PASSWORD' => $dbPassword
@@ -13,6 +13,8 @@ $options = [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
+
+var_dump($dbHost, $dbName, $dbCharset, $dbUser, $dbPassword);
 
 try {
     $pdo = new PDO($dsn, $dbUser, $dbPassword, $options);

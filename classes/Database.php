@@ -15,7 +15,7 @@ class Database
             // Charge la configuration depuis le fichier INI
             [
                 'HOST' => $dbHost,
-                'MYSQL' => $dbName,
+                'DB_NAME' => $dbName,
                 'CHARSET' => $dbCharset,
                 'USER' => $dbUser,
                 'PASSWORD' => $dbPassword
