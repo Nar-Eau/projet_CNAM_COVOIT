@@ -1,1 +1,0 @@
-let header=document.querySelector("header"),loginForm=(header.style.backgroundColor="red",document.querySelector("lofin-form"));

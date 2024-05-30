@@ -27,11 +27,10 @@ if (isset($_GET['id_topic'])) {
 </div>
 
 <div class="module-list">
-
     <?php foreach ($modules as $module):?>
-        <div class="module-container">
+        <div class="modules-container">
             <h2><?php echo $module['Name'] ; ?></h2>      
-            <div>
+            <div class="score">
                 <label for="score"><b>Score :</b><?php echo number_format($module['Id_Modules'], 2); ?></label>
             </div>
             <div>

@@ -175,6 +175,23 @@ header {
     .login-container input[type="submit"]:hover {
       background-color: #35008A; }
 
+.module-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 60px; }
+  .module-list .modules-container {
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; }
+    .module-list .modules-container .score {
+      margin-bottom: 1rem; }
+
 /* colors */
 /* fonts */
 /* box shadow */

@@ -1,7 +1,7 @@
 <?php
 [
     'HOST' => $dbHost,
-    'DB_NAME' => $dbName,
+    'MYSQL' => $dbName,
     'CHARSET' => $dbCharset,
     'USER' => $dbUser,
     'PASSWORD' => $dbPassword
