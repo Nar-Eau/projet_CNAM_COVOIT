@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/layout/header.php';
-
 require_once __DIR__ . '/classes/config.php';
 
 // Récupérer les utilisateurs
@@ -88,9 +87,10 @@ $users = $stmt->fetchAll();
                         <td><?php echo htmlspecialchars($user['Name']); ?></td>
                         <td><?php echo htmlspecialchars($user['Login']); ?></td>
                         <td>
-                            <form action="suppression.php" method="get" style="display:inline;">
-                                <input type="hidden" name="id" value="<?php echo htmlspecialchars($user['Id_Users']); ?>">
-                                <button type="submit" class="delete-button">Supprimer</button>
+                            <form id="deleteForm" action="suppression.php" method="post" style="display:inline;">
+                                <input type="hidden" id="user_id" name="user_id" value="<?php echo htmlspecialchars($user['Id_Users']); ?>">
+                                <input type="hidden" id="location" name="location" value="adminDashboard">
+                                <button type="submit" class="delete-button" onclick="confirmDelete()">Supprimer</button>
                             </form>
                         </td>
                     </tr>

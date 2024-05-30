@@ -34,27 +34,6 @@ if (isset($_SESSION['user_id'])) {
         }
     }
 }
-
-// if (isset($_POST['login']) && isset($_POST['password'])) {
-//     $login = $_POST['login'];
-//     $password = $_POST['password'];
-
-//     $sql = "SELECT password FROM users WHERE login = :login";
-//     $stmt = $pdo->prepare($sql);
-//     $stmt->execute(['login' => $login]);
-//     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-//     if ($user && password_verify($password, $user['password'])) {
-//         session_start();
-//         $sql = "SELECT Id_Users FROM users WHERE login = :login";
-//         $stmt = $pdo->prepare($sql);
-//         $stmt->execute(['login' => $login]);
-//         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-//         $_SESSION['user_id'] = $user['Id_Users'];
-//         header('Location: settings.php');
-//     } else {
-//         $message = 'Mauvais identifiants';
-//     }
-// }
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/layout/header.php';
-
+require_once __DIR__ . '/suppression.php';
 require_once __DIR__ . '/classes/config.php';
 
 $message = '';
@@ -80,7 +80,21 @@ if (!isset($_SESSION['user_id'])) {
         a:hover {
             text-decoration: underline;
         }
+
+        .delete-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #ff1a1a;
+        }
     </style>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -88,14 +102,14 @@ if (!isset($_SESSION['user_id'])) {
     <div class="dashboard-container">
         <h2>Bienvenue sur votre tableau de bord</h2>
         <p>Vous pouvez maintenant accéder à toutes les fonctionnalités disponibles.</p>
-        
+
         <?php
         if ($user['Is_Admin'] == 1) {
         ?>
             <a href="adminDashboard.php">Accéder au tableau de bord administrateur</a>
         <?php }
         ?>
-        
+
         <div class="login-container">
             <?php if (!empty($message)) : ?>
                 <p style="color:red"><?= $message ?></p>
@@ -122,7 +136,11 @@ if (!isset($_SESSION['user_id'])) {
             </form>
         </div>
         <a href="deconnexion.php">Se déconnecter</a>
-        <a href="suppression.php">Supprimer le compte</a>
+        <form id="deleteForm" action="suppression.php" method="post" style="display:inline;">
+            <input type="hidden" id="user_id" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
+            <input type="hidden" id="location" name="location" value="settings">
+            <button type="button" class="delete-button" onclick="confirmDelete()">Supprimer</button>
+        </form>
     </div>
 
 </body>
