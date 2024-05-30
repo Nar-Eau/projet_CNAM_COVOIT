@@ -1,0 +1,21 @@
+.module-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 60px;
+
+    .modules-container {
+        max-width: 300px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        box-shadow: $box-shadow;
+        border-radius: $br-normal;
+
+        .score {
+            margin-bottom: 1rem;
+        }
+    } 
+}
