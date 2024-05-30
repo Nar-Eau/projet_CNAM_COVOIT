@@ -33,6 +33,7 @@ if (!isset($_SESSION['user_id'])) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$user) {
         echo "Utilisateur non trouvé.";
+        unset($_SESSION['user_id']);
         exit;
     }
 }
