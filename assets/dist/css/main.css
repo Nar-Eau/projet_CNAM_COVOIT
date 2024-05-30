@@ -65,6 +65,38 @@ a:-webkit-any-link {
   text-align: center;
   margin: 0 100px; }
 
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px; }
+
+input[type="submit"] {
+  background-color: #35008A;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out; }
+  input[type="submit"]:hover {
+    background-color: #CA00D5; }
+
+button {
+  background-color: #35008A;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out; }
+  button:hover {
+    background-color: #CA00D5; }
+
 /* colors */
 /* fonts */
 /* box shadow */
@@ -156,24 +188,6 @@ header {
     display: block;
     margin-bottom: 8px;
     color: #555; }
-  .login-container input[type="text"], .login-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px; }
-  .login-container input[type="submit"] {
-    background-color: #35008A;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s; }
-    .login-container input[type="submit"]:hover {
-      background-color: #35008A; }
 
 .module-list {
   display: flex;

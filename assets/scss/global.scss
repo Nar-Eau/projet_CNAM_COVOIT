@@ -40,3 +40,45 @@ a {
     text-align: center;
     margin: 0 100px;
 }
+
+input {
+
+    &[type="text"], &[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid $gray;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    &[type="submit"] {
+        background-color: $primary;
+        color: $white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: $animation;
+    
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+}
+
+button {
+    background-color: $primary;
+    color: $white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: $animation;
+
+    &:hover {
+        background-color: $secondary;
+    }
+}

@@ -13,31 +13,4 @@
         margin-bottom: 8px;
         color: $gray-2;
     }
-
-    input {
-
-        &[type="text"], &[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid $gray;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        &[type="submit"] {
-            background-color: $primary;
-            color: $white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-
-            &:hover {
-                background-color: $primary;
-            }
-        }
-    }
 }
