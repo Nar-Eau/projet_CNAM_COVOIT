@@ -229,6 +229,7 @@ header {
     #quizForm .question-container .question {
       color: #fff;
       height: 50vh;
+      padding: 0 100px;
       background: linear-gradient(to left, #35008A, #CA00D5);
       display: flex;
       align-items: center;
@@ -236,24 +237,26 @@ header {
       flex-direction: column;
       font-size: 40px;
       font-weight: 800;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      margin-bottom: 100px; }
       #quizForm .question-container .question .progress-container {
         width: 80%;
         background: rgba(255, 255, 255, 0.5);
         border-radius: 5px;
         overflow: hidden; }
+      #quizForm .question-container .question .module-name {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 40px;
+        text-align: center;
+        margin: 20px 0 100px;
+        font-weight: 100; }
       #quizForm .question-container .question .progress-bar {
         width: 0;
         height: 10px;
         background-color: rgba(255, 255, 255, 0.9);
         border-radius: 25px;
         transition: width 0.5s ease; }
-    #quizForm .question-container .module-name {
-      color: #35008A;
-      text-transform: uppercase;
-      font-size: 40px;
-      text-align: center;
-      margin: 20px 0 100px; }
     #quizForm .question-container .answer {
       display: flex;
       flex-wrap: wrap;

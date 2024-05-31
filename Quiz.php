@@ -17,12 +17,14 @@ if (!empty($questions)) { ?>
     ?>
         <div class='question-container' id='question_" . $index . "' style='display: none;'>
             <div class="question">
-                Question <?php echo ($index + 1) . ": " . htmlspecialchars($question['Question']) ?> 
+                <div class="question-info">
+                    Question <?php echo ($index + 1) . ": " . htmlspecialchars($question['Question']) ?> 
+                    <p class="module-name"><?php echo $question['Name']?></p>
+                </div>
                 <div class="progress-container">
                     <div class="progress-bar" id="progress-bar"></div>
                 </div>
             </div>
-            <p class="module-name"><?php echo $question['Name']?></p>
             <div class="answer">
                 <?php
                 // Obtenir les réponses pour cette question

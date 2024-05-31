@@ -12,7 +12,7 @@ function getQuestions($connection) {
         $stmt = $connection->prepare("
         SELECT questions.*, modules.Name FROM questions
         JOIN modules ON questions.Id_Modules = modules.Id_Modules
-        WHERE modules.Id_Topics = 1=:id
+        WHERE modules.Id_Topics = :id
         ORDER BY RAND()
         LIMIT 40
         ");
