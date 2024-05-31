@@ -230,13 +230,30 @@ header {
       color: #fff;
       height: 50vh;
       background: linear-gradient(to left, #35008A, #CA00D5);
-      margin-bottom: 100px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
+      flex-direction: column;
       font-size: 40px;
       font-weight: 800;
       text-transform: uppercase; }
+      #quizForm .question-container .question .progress-container {
+        width: 80%;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        overflow: hidden; }
+      #quizForm .question-container .question .progress-bar {
+        width: 0;
+        height: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 25px;
+        transition: width 0.5s ease; }
+    #quizForm .question-container .module-name {
+      color: #35008A;
+      text-transform: uppercase;
+      font-size: 40px;
+      text-align: center;
+      margin: 20px 0 100px; }
     #quizForm .question-container .answer {
       display: flex;
       flex-wrap: wrap;

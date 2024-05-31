@@ -68,18 +68,30 @@ window.onload = function() {
                 default:
                     break;
             }
-
-            console.log(answer);
-
-            console.log(dataIndex, letterValue);
             modifyBeforeContent(answer, letterValue);
         });
     }
-
-
 
     showQuestion(currentQuestionIndex);
     putLettersOnBefore();
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const progressBar = document.getElementById('progress-bar');
+    let width = 0;
+    const duration = 30; // Duration in seconds
+    const interval = 100; // Interval in milliseconds
+    const increment = (interval / (duration * 1000)) * 100;
 
+    const fillProgressBar = () => {
+        if (width >= 100) {
+            clearInterval(intervalId);
+            document.getElementById('nextButton').click();
+        } else {
+            width += increment;
+            progressBar.style.width = `${width}%`;
+        }
+    };
+
+    const intervalId = setInterval(fillProgressBar, interval);
+});
