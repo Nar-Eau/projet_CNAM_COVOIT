@@ -10,7 +10,7 @@ $connection = Database::getConnection();
 $questions = getQuestions($connection);
 
 if (!empty($questions)) { ?>
-    <form id='quizForm' method='POST' action='Results.php'>
+    <form id='quizForm' method='POST' action='results.php'>
     
     <?php
     foreach ($questions as $index => $question) {
