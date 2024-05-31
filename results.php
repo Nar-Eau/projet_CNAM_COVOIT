@@ -43,7 +43,7 @@ if (isset($_SESSION['Id_Modules'])) {
     $stmt->execute(['user_id' => $user_id, 'Id_Modules' => $Id_Modules]);
     $scores = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    if($scores["Score"] < $correctAnswers) {
+    if( !empty($scores) && $scores["Score"] < $correctAnswers) {
         $sql = "DELETE FROM score_modules WHERE score_modules.Id_Users = :user_id AND score_modules.Id_Modules = :Id_Modules";
         $stmt = $pdo->prepare($sql);
         $result = $stmt->execute(['user_id' => $user_id, 'Id_Modules' => $Id_Modules]);
@@ -61,30 +61,39 @@ $score = ($correctAnswers / $totalQuestions) * 100;
 // Afficher les résultats
 require_once __DIR__ . '/layout/header.php';
 ?>
-<h1>Résultats du Quiz</h1>
-<p>Votre score: <?= $correctAnswers ?> / <?= $totalQuestions ?> (<?= $score ?>%)</p>
 
-<h2>Détails des réponses:</h2>
-<?php foreach ($results as $result): ?>
-    <?php
-    $stmt = $connection->prepare("SELECT * FROM questions WHERE Id_Questions = :id");
-    $stmt->execute(['id' => $result['questionId']]);
-    $question = $stmt->fetch();
-    ?>
-
-    <div>
-        <p>Question: <?= htmlspecialchars($question['Question']) ?></p>
-
-        <?php if ($result['isCorrect']): ?>
-            <p>Votre réponse: Correct</p>
-        <?php else: 
-            
-            ?>
-            <p>Votre réponse: Incorrect</p>
-            <p>Explication: <?= htmlspecialchars($result['explanation']) ?></p>
-        <?php endif; ?>
+<div class="content">
+    <div class="headings">
+        <div class="page-title">
+            Résultats du Quiz
+        </div>
+        <div class="page-description">
+            Votre score: <?= $correctAnswers ?> / <?= $totalQuestions ?> (<?= $score ?>%)
+        </div>
     </div>
-    <hr>
-<?php endforeach; ?>
+    <h2>Détails des réponses:</h2>
+    <div class="result-list">
+        <?php foreach ($results as $result): ?>
+            <?php
+            $stmt = $connection->prepare("SELECT * FROM questions WHERE Id_Questions = :id");
+            $stmt->execute(['id' => $result['questionId']]);
+            $question = $stmt->fetch();
+            ?>
+
+            <div class="result-item">
+                <p class="result-question">Question: <?= htmlspecialchars($question['Question']) ?></p>
+                <div class="result-answer">
+                    <?php if ($result['isCorrect']): ?>
+                        <p class="correct">Correct</p>
+                    <?php else: 
+                        ?>
+                        <p class="incorrect">Incorrect</p>
+                        <p>Explication: <?= htmlspecialchars($result['explanation']) ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>

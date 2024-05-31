@@ -37,7 +37,7 @@ if (!empty($questions)) { ?>
                         ?>
                         <label>
                         <input type='radio' name='answer_<?php echo $question['Id_Questions'] ?>' value='<?php echo htmlspecialchars($answer['Id_Answers']) ?>' data-index='<?php echo $index?>'>
-                        <p>
+                        <p class="value">
                             <?php
                             echo htmlspecialchars($answer['Answer'])
                             ?>

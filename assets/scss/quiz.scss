@@ -15,6 +15,7 @@
             font-size: $fs-headers;
             font-weight: $fw-headers;
             text-transform: uppercase;
+            text-align: center;
             margin-bottom: 100px;
 
             .progress-container {
@@ -90,6 +91,13 @@
 
                 input {
                     display: none;
+                }
+
+                .value {
+                    margin: 0;
+                    width: 100%;
+                    display: flex;
+                    padding: 10px;
                 }
             }
 

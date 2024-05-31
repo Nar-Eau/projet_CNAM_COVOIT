@@ -27,9 +27,7 @@ footer {
   width: 100%;
   padding: 10px 0;
   background-color: #35008A;
-  color: #fff;
-  position: static;
-  bottom: 0; }
+  color: #fff; }
 
 .copyright {
   width: 100%;
@@ -81,7 +79,7 @@ a:-webkit-any-link {
 .content {
   text-align: center;
   margin: 0 100px;
-  height: 100vh; }
+  min-height: 100vh; }
 
 input[type="text"], input[type="password"] {
   width: 100%;
@@ -238,6 +236,7 @@ header {
       font-size: 40px;
       font-weight: 800;
       text-transform: uppercase;
+      text-align: center;
       margin-bottom: 100px; }
       #quizForm .question-container .question .progress-container {
         width: 80%;
@@ -295,11 +294,32 @@ header {
           color: #fff; }
         #quizForm .question-container .answer label input {
           display: none; }
+        #quizForm .question-container .answer label .value {
+          margin: 0;
+          width: 100%;
+          display: flex;
+          padding: 10px; }
   #quizForm .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 100px 0; }
+
+.result-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px; }
+  .result-list .result-item {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding: 20px;
+    width: 100%; }
+    .result-list .result-item .incorrect {
+      color: #CA00D5; }
+    .result-list .result-item .correct {
+      color: #35008A; }
 
 /* colors */
 /* fonts */
