@@ -8,6 +8,7 @@ $connection = Database::getConnection();
 
 // Appeler la fonction getQuestions avec la connexion à la base de données
 $questions = getQuestions($connection);
+
 ?>
 
 
@@ -22,6 +23,8 @@ if (!empty($questions)) { ?>
     ?>
         <div class='question-container' id='question_" . $index . "' style='display: none;'>
             <div class="question">Question <?php echo ($index + 1) . ": " . htmlspecialchars($question['Question']) ?> </div>
+            <!-- TODO : Faire front  -->
+            <p><?php echo $question['Name']?></p>
                 <div class="answer">
                     <?php
                     // Obtenir les réponses pour cette question
