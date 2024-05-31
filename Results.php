@@ -67,7 +67,7 @@ require_once __DIR__ . '/layout/header.php';
 <h2>Détails des réponses:</h2>
 <?php foreach ($results as $result): ?>
     <?php
-    $stmt = $connection->prepare("SELECT * FROM Questions WHERE Id_Questions = :id");
+    $stmt = $connection->prepare("SELECT * FROM questions WHERE Id_Questions = :id");
     $stmt->execute(['id' => $result['questionId']]);
     $question = $stmt->fetch();
     ?>

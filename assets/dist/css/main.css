@@ -6,6 +6,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+.table-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .table-container table {
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+    .table-container table thead th {
+      padding: 5px 10px; }
+  .table-container #deleteForm {
+    margin-left: 1rem; }
+
+/* colors */
+/* fonts */
+/* box shadow */
 footer {
   width: 100%;
   padding: 10px 0;
@@ -74,8 +91,8 @@ input[type="text"], input[type="password"] {
   border-radius: 4px;
   font-size: 16px; }
 
-input[type="submit"] {
-  background-color: #35008A;
+button, input[type="submit"] {
+  background: linear-gradient(to left, #35008A, #CA00D5);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -83,20 +100,8 @@ input[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   transition: all 200ms ease-in-out; }
-  input[type="submit"]:hover {
-    background-color: #CA00D5; }
-
-button {
-  background-color: #35008A;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 200ms ease-in-out; }
-  button:hover {
-    background-color: #CA00D5; }
+  button:hover, input[type="submit"]:hover {
+    background: linear-gradient(to left, rgba(53, 0, 138, 0.9), rgba(202, 0, 213, 0.9)); }
 
 /* colors */
 /* fonts */
@@ -236,10 +241,11 @@ header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      row-gap: 50px; }
+      row-gap: 50px;
+      margin: 0 100px; }
       #quizForm .question-container .answer label {
         width: 40%;
-        height: 50px;
+        height: 100px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         display: flex;
@@ -248,12 +254,14 @@ header {
         text-align: left;
         transition: all 200ms ease-in-out;
         overflow: hidden;
-        font-size: 12px; }
+        font-size: 14px; }
         #quizForm .question-container .answer label:hover {
           background-color: #f8f8f8; }
         #quizForm .question-container .answer label:before {
-          content: 'A';
-          display: block;
+          content: var(--before-content, "");
+          display: flex;
+          align-items: center;
+          justify-content: center;
           height: 100%;
           aspect-ratio: 1;
           background-color: #fff;
@@ -266,15 +274,12 @@ header {
           background: linear-gradient(to left, #35008A, #CA00D5);
           color: #fff; }
         #quizForm .question-container .answer label input {
-          height: 100%;
-          aspect-ratio: 1;
-          background: linear-gradient(to left, #35008A, #CA00D5);
-          visibility: hidden;
           display: none; }
-          #quizForm .question-container .answer label input:hover {
-            background-color: #ff9900; }
-        #quizForm .question-container .answer label input[type="radio"]:checked + .custom-radio {
-          background-color: #ff7e5f; }
+  #quizForm .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0; }
 
 /* colors */
 /* fonts */

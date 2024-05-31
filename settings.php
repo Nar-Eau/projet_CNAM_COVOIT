@@ -39,66 +39,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paramètres utilisateurs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .dashboard-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px 30px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        p {
-            color: #555;
-        }
-
-        a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .delete-button {
-            background-color: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .delete-button:hover {
-            background-color: #ff1a1a;
-        }
-    </style>
-    <script src="script.js" defer></script>
-</head>
-
-<body>
-
+    <div class="content">
     <div class="dashboard-container">
         <h2>Bienvenue sur votre tableau de bord</h2>
         <p>Vous pouvez maintenant accéder à toutes les fonctionnalités disponibles.</p>
@@ -142,7 +83,7 @@ if (!isset($_SESSION['user_id'])) {
             <button type="button" class="delete-button" onclick="confirmDelete()">Supprimer</button>
         </form>
     </div>
+    </div>
 
-</body>
 
-</html>
+<?php require_once __DIR__ . '/layout/footer.php'; ?>

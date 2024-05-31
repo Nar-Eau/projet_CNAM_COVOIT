@@ -38,17 +38,9 @@ window.onload = function() {
         }
     });
 
-    function modifyBeforeContent(selector, newContent) {
-        const sheet = document.styleSheets[0];
-        const rules = sheet.cssRules || sheet.rules;
+    function modifyBeforeContent(element, newContent) {
+        element.style.setProperty('--before-content', `"${newContent}"`);
 
-        for (let i = 0; i < rules.length; i++) {
-            const rule = rules[i];
-            if (rule.selectorText === selector + "::before") {
-                rule.style.content = `"${newContent}"`;
-                break;
-            }
-        }
     }
 
     function putLettersOnBefore() {
@@ -56,9 +48,9 @@ window.onload = function() {
         
         answers.forEach(answer => {
             const input = answer.getElementsByTagName('input')[0];
-            const dataIndex = input.getAttribute('data-index');
+            const dataIndex = parseInt(input.getAttribute('data-index')); // Convertir en nombre
 
-            const letterValue = "";
+            let letterValue = "";
 
             switch (dataIndex) {
                 case 0:
@@ -77,7 +69,10 @@ window.onload = function() {
                     break;
             }
 
-            modifyBeforeContent(this, letterValue);
+            console.log(answer);
+
+            console.log(dataIndex, letterValue);
+            modifyBeforeContent(answer, letterValue);
         });
     }
 

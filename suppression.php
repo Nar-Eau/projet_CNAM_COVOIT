@@ -1,12 +1,14 @@
 <?php
-
-require_once __DIR__ . '/layout/header.php';
-
 require_once __DIR__ . '/classes/config.php';
 
 if (isset($_POST['user_id']) && isset($_POST['location'])) {
 
-    echo $_POST['user_id'];
+    //Delete all scores from users
+    $sql = "DELETE FROM score_modules WHERE Id_Users = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $_POST['user_id']]);
+
+    //Delete user
     $sql = "DELETE FROM users WHERE Id_Users = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $_POST['user_id']]);

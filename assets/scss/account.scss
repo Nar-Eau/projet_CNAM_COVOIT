@@ -1,0 +1,21 @@
+@import './assets/scss/variables.scss';
+
+.table-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    table {
+        padding: 20px;
+        box-shadow: $box-shadow;
+
+        thead th {
+            padding: 5px 10px;
+        }
+    }
+
+    #deleteForm {
+        margin-left: 1rem;
+    }
+}

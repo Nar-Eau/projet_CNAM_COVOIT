@@ -21,10 +21,11 @@
             flex-wrap: wrap;
             justify-content: space-between;
             row-gap: 50px;
+            margin: 0 100px;
 
             label {
                 width: 40%;
-                height: 50px;
+                height: 100px;
                 box-shadow: $box-shadow;
                 border-radius: $br-normal;
                 display: flex;
@@ -33,15 +34,17 @@
                 text-align: left;
                 transition: $animation;
                 overflow: hidden;
-                font-size: 12px;
+                font-size: 14px;
 
                 &:hover {
                     background-color: $l-gray;
                 }
 
                 &:before {
-                    content: 'A';
-                    display: block;
+                    content: var(--before-content, "");;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     height: 100%;
                     aspect-ratio: 1;
                     background-color: $white;
@@ -60,23 +63,19 @@
                 }
 
                 input {
-                    height: 100%;
-                    aspect-ratio: 1;
-                    background: linear-gradient(to left,$primary, $secondary);
-                    visibility: hidden;
                     display: none;
-
-                    &:hover {
-                        background-color: #ff9900;
-                    }
-                }
-
-                input[type="radio"]:checked + .custom-radio {
-                    background-color: #ff7e5f;
                 }
             }
 
         }
+
+    }
+    
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 100px 0;
     }
    
 }

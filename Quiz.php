@@ -22,7 +22,6 @@ if (!empty($questions)) { ?>
     ?>
         <div class='question-container' id='question_" . $index . "' style='display: none;'>
             <div class="question">Question <?php echo ($index + 1) . ": " . htmlspecialchars($question['Question']) ?> </div>
-            <div class="content">
                 <div class="answer">
                     <?php
                     // Obtenir les réponses pour cette question
@@ -35,22 +34,24 @@ if (!empty($questions)) { ?>
                             ?>
                             <label>
                             <input type='radio' name='answer_<?php echo $question['Id_Questions'] ?>' value='<?php echo htmlspecialchars($answer['Id_Answers']) ?>' data-index='<?php echo $index?>'>
-                            <?php
-                            echo htmlspecialchars($answer['Answer'])
-                            ?>
-                            </label><br>
+                            <p>
+                                <?php
+                                echo htmlspecialchars($answer['Answer'])
+                                ?>
+                            </p>
+                            </label>
                             <?php
                         }
                     }
                     ?>
                 </div>
-            </div>
         </div>
         <?php
     }?>
-
-    <button id='nextButton' type='button'>Question Suivante</button>
-    <button id='submitButton' type='submit' style='display: none;'>Soumettre</button>
+    <div class="button-container">
+        <button id='nextButton' type='button'>Question Suivante</button>
+        <button id='submitButton' type='submit' style='display: none;'>Soumettre</button>
+    </div>
     </form>
 
     <?php
