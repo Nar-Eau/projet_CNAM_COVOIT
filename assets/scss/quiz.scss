@@ -1,0 +1,82 @@
+#quizForm {
+    height: 100%;
+    .question-container {
+        height: 100%;
+
+        .question {
+            color: $white;
+            height: 50vh;
+            background: linear-gradient(to left,$primary, $secondary);
+            margin-bottom: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: $fs-headers;
+            font-weight: $fw-headers;
+            text-transform: uppercase;
+        }
+
+        .answer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 50px;
+
+            label {
+                width: 40%;
+                height: 50px;
+                box-shadow: $box-shadow;
+                border-radius: $br-normal;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                text-align: left;
+                transition: $animation;
+                overflow: hidden;
+                font-size: 12px;
+
+                &:hover {
+                    background-color: $l-gray;
+                }
+
+                &:before {
+                    content: 'A';
+                    display: block;
+                    height: 100%;
+                    aspect-ratio: 1;
+                    background-color: $white;
+                    color: $primary;
+                    text-align: center;
+                    font-size: $fs-medium;
+                    font-weight: $fw-headers;
+                    top: 50%;
+                }
+
+                &:has(input[type="radio"]:checked) {
+                    &:before {
+                        background: linear-gradient(to left, $primary, $secondary);
+                        color: $white;
+                    }
+                }
+
+                input {
+                    height: 100%;
+                    aspect-ratio: 1;
+                    background: linear-gradient(to left,$primary, $secondary);
+                    visibility: hidden;
+                    display: none;
+
+                    &:hover {
+                        background-color: #ff9900;
+                    }
+                }
+
+                input[type="radio"]:checked + .custom-radio {
+                    background-color: #ff7e5f;
+                }
+            }
+
+        }
+    }
+   
+}

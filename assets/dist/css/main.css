@@ -217,6 +217,65 @@ header {
     .module-list .modules-container .score {
       margin-bottom: 1rem; }
 
+#quizForm {
+  height: 100%; }
+  #quizForm .question-container {
+    height: 100%; }
+    #quizForm .question-container .question {
+      color: #fff;
+      height: 50vh;
+      background: linear-gradient(to left, #35008A, #CA00D5);
+      margin-bottom: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      text-transform: uppercase; }
+    #quizForm .question-container .answer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      row-gap: 50px; }
+      #quizForm .question-container .answer label {
+        width: 40%;
+        height: 50px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        text-align: left;
+        transition: all 200ms ease-in-out;
+        overflow: hidden;
+        font-size: 12px; }
+        #quizForm .question-container .answer label:hover {
+          background-color: #f8f8f8; }
+        #quizForm .question-container .answer label:before {
+          content: 'A';
+          display: block;
+          height: 100%;
+          aspect-ratio: 1;
+          background-color: #fff;
+          color: #35008A;
+          text-align: center;
+          font-size: 24px;
+          font-weight: 800;
+          top: 50%; }
+        #quizForm .question-container .answer label:has(input[type="radio"]:checked):before {
+          background: linear-gradient(to left, #35008A, #CA00D5);
+          color: #fff; }
+        #quizForm .question-container .answer label input {
+          height: 100%;
+          aspect-ratio: 1;
+          background: linear-gradient(to left, #35008A, #CA00D5);
+          visibility: hidden;
+          display: none; }
+          #quizForm .question-container .answer label input:hover {
+            background-color: #ff9900; }
+        #quizForm .question-container .answer label input[type="radio"]:checked + .custom-radio {
+          background-color: #ff7e5f; }
+
 /* colors */
 /* fonts */
 /* box shadow */

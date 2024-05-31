@@ -10,8 +10,8 @@ function getQuestions($connection) {
     if (isset($_GET['selection'])) {
         // Logique pour obtenir 40 questions pour un sujet
         $stmt = $connection->prepare("
-        SELECT q.* FROM Questions q
-        JOIN Modules m ON q.Id_Modules = m.Id_Modules
+        SELECT q.* FROM questions q
+        JOIN modules m ON q.Id_Modules = m.Id_Modules
         WHERE m.Id_Topics = :id
         ORDER BY RAND()
         LIMIT 40
@@ -20,7 +20,7 @@ function getQuestions($connection) {
         session_start();
         $_SESSION['Id_Modules'] = $id;
         $stmt = $connection->prepare("
-            SELECT * FROM Questions 
+            SELECT * FROM questions 
             WHERE Id_Modules = :id 
             ORDER BY RAND()
             LIMIT 10
